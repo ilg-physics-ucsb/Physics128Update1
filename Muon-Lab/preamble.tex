@@ -1,0 +1,132 @@
+\RequirePackage{amsmath,amsfonts,amsthm,environ,mathtools,wasysym,tensor} % Math packages
+\RequirePackage{bbm,bm}
+\RequirePackage{lipsum,caption,graphicx} 
+
+\RequirePackage{xcolor,xargs,wrapfig,setspace} %Formatting
+\RequirePackage{hyperref}
+\RequirePackage[most]{tcolorbox}
+% Set font and line spacing
+\renewcommand{\baselinestretch}{1.3}
+\renewcommand{\familydefault}{\sfdefault}
+ 
+% Define Colors for box classes
+\definecolor{niceteal}{RGB}{120, 171, 145}
+\definecolor{physicsconcept}{RGB}{161, 113, 26}
+\definecolor{instrumentconcept}{RGB}{93, 78, 99}
+\definecolor{analysisconcept}{RGB}{101, 112, 92}
+
+% Default Box
+\tcbset{colframe=niceteal,colbacktitle=niceteal,colback=white, arc=1mm,width=\textwidth,fonttitle=\sffamily\bfseries\large,halign title=flush center,tcbox width=auto limited,center,enlarge left by = 0 in}
+
+%Custom Boxes -- I used enviroments because they are mor consitstent than tcolorbox built ins.
+\newtcolorbox{QQP}[1][]{
+enhanced, #1, width= \textwidth, colframe=physicsconcept, center,valign=center,
+before skip=5mm, after skip=5mm,
+leftrule=8mm, sharp corners=northwest,parbox=true,
+enlarge left by = 0 in,
+halign=flush left ,  fontupper= \small \setstretch{1.0}, title= Q,
+detach title,
+overlay={
+        \node[ minimum width=\textwidth, anchor=north,xshift=4 mm,yshift=3mm] at (frame.west) {\tcbtitle};
+        }
+     }
+     
+\newtcolorbox{QEQ}[1][]{
+enhanced, #1, width= \textwidth, colframe=niceteal, center,valign=top,
+%before skip=5mm, after skip=5mm,
+halign=center
+     }
+\environbodyname\BBODY
+
+
+
+\newenvironmentx{wblurb}[5][1=r,2=0.4,3=title,4]
+  {\wrapfigure[#5]{#1}{#2\textwidth}\tcolorbox[width=#2\textwidth, title=\normalsize \setstretch{1.0} #3,fontupper= \footnotesize \setstretch{1.0},#4]}
+  {\endtcolorbox\endwrapfigure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Commands for Convenience
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Math Environments
+\makeatletter
+\newcommand{\oset}[3][0ex]{%
+	\mathrel{\mathop{#3}\limits^{
+			\vbox to#1{\kern-2\ex@
+				\hbox{$\scriptstyle#2$}\vss}}}}
+\makeatother
+
+\NewEnviron{align**}
+{\par\setstretch{1.0}\begin{align}\begin{split} 
+\BBODY 
+\end{split}\end{align}}
+
+\NewEnviron{gather**}
+{\begin{gather}\begin{split} 
+\BBODY 
+\end{split}\end{gather}}
+%{\begin{gather}\begin{split}}{\end{split}\end{gather}}
+
+
+
+%%Shortcuts
+\newcommand{\llangle}{\l\langle}
+\newcommand{\rrangle}{\r\rangle}
+\renewcommand{\l}{\left}
+\renewcommand{\r}{\right}
+
+\renewcommand{\b}{\textbf}
+\newcommand{\+}[1]{\,\text{#1}}
+
+\newcommand{\bsm}{\boldsymbol}
+\newcommand{\vphi}{\varphi}
+
+%%Symbols
+\newcommand{\dg}{^{\dag}}
+\newcommand{\da}{\downarrow}
+\newcommand{\ua}{\uparrow}
+\renewcommand{\d}{\partial}
+\newcommand{\del}{ {\oset{{_{_{_{_ {\rightharpoonup}}}}}}{\! \nabla }}\! }
+\renewcommand{\.}{\cdot}
+\renewcommand{\'}[1]{\ensuremath{ \vec{{#1}}\,}}
+\renewcommand{\^}{\hat}
+\newcommand{\dx}[2]{\frac{\text{d}\,{#1}}{(2\pi)^{#2}} \;}
+\newcommand{\qeq}{\overset{!}{=}}
+\renewcommand{\*}{^{\,*\!}}
+\newcommand{\RA}{\rightarrow}
+\newcommand{\T}{^{_T}}
+
+
+
+%%Greek 
+\newcommand{\w}{\omega}
+\newcommand{\wt}{\omega t}
+\newcommand{\e}{\epsilon}
+\renewcommand{\t}{\tau}
+\renewcommand{\k}{\kappa}
+\newcommand{\g}{\gamma}
+\newcommand{\x}{\chi}
+\newcommand{\s}{\sigma}
+
+
+%%Tensors
+\newcommand{\arbten}[1]{\tensor{#1}{^{b_1 b_2\cdots b_k}_{c_1c_2\cdots c_l}} }
+\newcommand{\arbtenup}[1]{\tensor{#1}{^{b_1 b_2\cdots d\cdots b_k}_{c_1c_2\cdots c_l}} }
+\newcommand{\arbtendown}[1]{\tensor{#1}{^{b_1 b_2\cdots b_k}_{c_1c_2\cdots d\cdots c_l}} }
+
+
+
+
+%%Math Text
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\?}{\mathcal}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\sgn}{\mathrm{sgn}}
+\newcommand{\sech}{\mathrm{sech}}
+\newcommand{\csch}{\mathrm{csch}}
+\newcommand{\arctanh}{\mathrm{arctanh}}
+\newcommand{\arcsinh}{\mathrm{arcsinh}}
+\newcommand{\re}{\mathrm{Re}}
+\newcommand{\im}{\mathrm{Im}}
+\newcommand{\ID}{\mathbbm{1}}	
+\newcommand{\uub}[2]{\underbrace{#1}_{#2}}	
+
