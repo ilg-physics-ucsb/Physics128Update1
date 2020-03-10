@@ -35,19 +35,14 @@ With the $50\Omega$ terminator connected, what is the  effective input impedance
 Discuss with your partner what you think is happening here. Call the your TA over and explain to them what you and your partner have discussed.
 :::
 
-## Impedance 2
+## Photomultiplier Tubes (PMT's)
 
-If you studied analog electronics, you've had some experience with impedances and this section may just serve as review.
-Impedance is something one considers when dealing with time varying signals is frequency dependent.  It is analogous to resistance for direct current (DC) circuits. It is expressed as a complex number.
+[Photomultilplier tubes](https://en.wikipedia.org/wiki/Photomultiplier_tube) work by the [photoelectric effect](https://en.wikipedia.org/wiki/Photoelectric_effect) and by [secondary emission](https://en.wikipedia.org/wiki/Secondary_emission). 
 
-$$Z = R + iX(f)$$
+![Cross-section of PMT](./imgs/PMT_Scint.svg)
 
-For this lab we don't need to consider the consider the frequency dependent part of the lab. (I actually don't know, this is just a test an assumption. If so should we have the students do a calculation?) So we will focus on the real part of the impedance. 
+Above is a cross section of a PMT with a scintillator. The scintillator gives off a photon that enters the PMT. 
 
-In analog circuits, when you connect two circuits together you typically as trying to pass information about the voltage from one circuit to the next. It would not be good if the second circuit were to affect the voltage signal from the first circuit. To limit the effect of the second circuit on the first you were taught that the first circuit should have a low output impedance, and the second circuit should have high input impedance. 
-
-Here is simplified drawing of connecting two circuits. We want all fo the voltage information from the circuit in device A to be passed the circuit in device B. We want $V_{in}=V_{out}$. We further simplify the model of the two circuits by drawing the device as a simple voltage divider. 
-
-![Impedance Circuit Diagram](./imgs/Impedance.svg) 
-
-When passing signals from one device to another we often don't 
+:::Question
+Discuss with your partner how where and how each of the effects play a role in the PMT functionality.
+:::
